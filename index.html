@@ -1180,20 +1180,20 @@
         const priceMap = { '7 Hari': 6000, '14 Hari': 11000, '1 Bulan': 20000 };
         const packagesOrdered = [];
         
-        message = '*Halo MYCLIPS!*\\nSaya ingin memesan:\\n━━━━━━━━━━━━━━━━━━\\n';
+        message = '*Halo MYCLIPS!*\nSaya ingin memesan:\n━━━━━━━━━━━━━━━━━━\n';
         let totalPrice = 0;
         
         Object.entries(capCutQuantities).forEach(([pkg, qty]) => {
           if (qty > 0) {
             const price = priceMap[pkg];
             const subtotal = price * qty;
-            message += `*CapCut Premium - ${pkg}*\\n*Jumlah:* ${qty}\\n*Harga Satuan:* Rp ${price.toLocaleString('id-ID')}\\n`;
+            message += `*CapCut Premium - ${pkg}*\n*Jumlah:* ${qty}\n*Harga Satuan:* Rp ${price.toLocaleString('id-ID')}\n`;
             totalPrice += subtotal;
             packagesOrdered.push({ pkg, qty, price, subtotal });
           }
         });
         
-        message += `━━━━━━━━━━━━━━━━━━\\n*Total Harga:* Rp ${totalPrice.toLocaleString('id-ID')}\\n━━━━━━━━━━━━━━━━━━\\nMohon diproses ya, terima kasih!`;
+        message += `━━━━━━━━━━━━━━━━━━\n*Total Harga:* Rp ${totalPrice.toLocaleString('id-ID')}\n━━━━━━━━━━━━━━━━━━\nMohon diproses ya, terima kasih!`;
         
         const savePromises = packagesOrdered.map(async (item) => {
           const orderData = {
@@ -1231,7 +1231,7 @@
             .filter(email => email !== '')
             .join(', ');
           
-          message = `*Halo MYCLIPS!*\\nSaya ingin memesan:\\n━━━━━━━━━━━━━━━━━━\\n*Produk:* ${selectedProduct}\\n*Paket:* ${selectedPackage}\\n*Email:* \\n${emails}\\n━━━━━━━━━━━━━━━━━━\\n*Total Harga:* Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}\\n━━━━━━━━━━━━━━━━━━\\nMohon diproses ya, terima kasih!`;
+          message = `*Halo MYCLIPS!*\nSaya ingin memesan:\n━━━━━━━━━━━━━━━━━━\n*Produk:* ${selectedProduct}\n*Paket:* ${selectedPackage}\n*Email:* \n${emails}\n━━━━━━━━━━━━━━━━━━\n*Total Harga:* Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}\n━━━━━━━━━━━━━━━━━━\nMohon diproses ya, terima kasih!`;
           
           orderData = {
             id: generateOrderId(),
@@ -1255,7 +1255,7 @@
           const emailCount = emails.split(',').length;
           const totalPrice = parseInt(selectedPrice) * emailCount;
           
-          message = `*Halo MYCLIPS!*\\nSaya ingin memesan:\\n━━━━━━━━━━━━━━━━━━\\n*Produk:* ${selectedProduct}\\n*Paket:* ${selectedPackage}\\n*Jumlah:* ${emailCount} akun\\n*Harga Satuan:* Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}\\n*Email:* ${emails}\\n━━━━━━━━━━━━━━━━━━\\n*Total Harga:* Rp ${totalPrice.toLocaleString('id-ID')}\\n━━━━━━━━━━━━━━━━━━\\nMohon diproses ya, terima kasih!`;
+          message = `*Halo MYCLIPS!*\nSaya ingin memesan:\n━━━━━━━━━━━━━━━━━━\n*Produk:* ${selectedProduct}\n*Paket:* ${selectedPackage}\n*Jumlah:* ${emailCount} akun\n*Harga Satuan:* Rp ${parseInt(selectedPrice).toLocaleString('id-ID')}\n*Email:* ${emails}\n━━━━━━━━━━━━━━━━━━\n*Total Harga:* Rp ${totalPrice.toLocaleString('id-ID')}\n━━━━━━━━━━━━━━━━━━\nMohon diproses ya, terima kasih!`;
           
           orderData = {
             id: generateOrderId(),
